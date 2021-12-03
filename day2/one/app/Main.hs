@@ -49,8 +49,8 @@ pCommands = do
 
 applyCommand :: Position -> Command -> Position
 applyCommand (Position h v) (Command Forward m) = Position (h+m)  v
-applyCommand (Position h v) (Command Down m)  = Position  h    (v+m)
-applyCommand (Position h v) (Command Up m)    = Position  h    (v-m)
+applyCommand (Position h v) (Command Down m)    = Position  h    (v+m)
+applyCommand (Position h v) (Command Up m)      = Position  h    (v-m)
 
 main :: IO ()
 main = do
