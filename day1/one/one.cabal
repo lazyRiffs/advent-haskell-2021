@@ -1,0 +1,75 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.34.4.
+--
+-- see: https://github.com/sol/hpack
+
+name:           one
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/ghostlap/xf#readme>
+homepage:       https://github.com/ghostlap/one#readme
+bug-reports:    https://github.com/ghostlap/one/issues
+author:         ghostlaplabs
+maintainer:     dev@ghostlaplabs.io
+copyright:      none
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/ghostlap/one
+
+library
+  other-modules:
+      Paths_one
+  hs-source-dirs:
+      src
+  build-depends:
+      HUnit
+    , aeson
+    , ansi-terminal
+    , base >=4.7 && <5
+    , bytestring
+    , containers
+    , directory
+    , filepath
+    , hashable
+    , megaparsec
+    , optparse-applicative
+    , scientific
+    , text
+    , time
+    , unordered-containers
+    , utility-ht
+  default-language: Haskell2010
+
+executable one-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_one
+  hs-source-dirs:
+      app
+  ghc-options: -rtsopts -with-rtsopts=-N -threaded
+  build-depends:
+      HUnit
+    , aeson
+    , ansi-terminal
+    , base >=4.7 && <5
+    , bytestring
+    , containers
+    , directory
+    , filepath
+    , hashable
+    , megaparsec
+    , one
+    , optparse-applicative
+    , scientific
+    , text
+    , time
+    , unordered-containers
+    , utility-ht
+  default-language: Haskell2010
