@@ -1,0 +1,22 @@
+20,21c20,21
+< --                        H   V
+< data Position = Position Int Int deriving (Eq, Show)
+---
+> --                        H   V  A
+> data Position = Position Int Int Int deriving (Eq, Show)
+51,53c51,55
+< applyCommand (Position h v) (Command Forward m) = Position (h+m)  v
+< applyCommand (Position h v) (Command Down m)    = Position  h    (v+m)
+< applyCommand (Position h v) (Command Up m)      = Position  h    (v-m)
+---
+> applyCommand (Position h v a) (Command Forward m) =
+>   Position (h+m) v'  a
+>   where v' = v + m * a
+> applyCommand (Position h v a) (Command Down m)    = Position  h    v    (a+m)
+> applyCommand (Position h v a) (Command Up m)      = Position  h    v    (a-m)
+58,59c60,61
+<   let startingPosition = Position 0 0
+<   let (Position h v) = foldl applyCommand startingPosition (runParse contents)
+---
+>   let startingPosition = Position 0 0 0
+>   let (Position h v a) = foldl applyCommand startingPosition (runParse contents)
